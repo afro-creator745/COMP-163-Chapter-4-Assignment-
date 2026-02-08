@@ -171,21 +171,6 @@ if user_choice in available_options:
     # Rest of logic developed independently
 ```
 
-## 🆘 Troubleshooting
-
-### "Tests pass locally but fail on GitHub"
-- Check Python version (GitHub uses 3.10)
-- Ensure variable names match exactly
-- Verify you're not using Chapter 5+ concepts
-
-### "Import errors"
-- Don't use external libraries
-- This assignment uses only built-in Python
-
-### "Test timeout"
-- Check for infinite loops in input validation
-- Ensure your program eventually ends
-
 ## 🎓 Learning Objectives
 
 By completing this assignment, you will:
@@ -198,5 +183,3 @@ By completing this assignment, you will:
 - Develop Git workflow skills
 
 ---
-
-Good luck! Remember to commit often and check your test results on GitHub! 🚀
