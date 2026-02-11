@@ -30,13 +30,26 @@ if (course_load == "Light") or (course_load == "Standard") or (course_load == "H
         else:
             print("Invalid Choice")
 
+        if study_choice == "Y":
+            print("You studied")
+            study_hours += 2
+            stress_level -= 4
+        elif study_choice == "N":
+            print("You did not studied")
+            study_hours -= 2
+            stress_level += 4
+        else:
+            print("Invalid Choice")
 
 
-    if course_load == "Standard":
 
-    if course_load == "Heavy":
+
 
 
 
 else:
     print("Invalid Choice")
+if (study_hours > 5) and (stress_level < 40):
+    print("You passed your test!!!")
+elif (study_hours <= 5) or (stress_level >= 40):
+    print("You failed your test.")
