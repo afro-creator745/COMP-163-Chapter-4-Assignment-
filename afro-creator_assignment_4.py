@@ -13,7 +13,11 @@ print("Stress level:", stress_level)  #Foundation test ran complete
 #presenting the 3 course load options
 print("Select Course Load\n ", "Light - Standard - Heavy")
 course_load = input()
+
+#Step 2: Course Planning Decision
 if (course_load == "Light") or (course_load == "Standard") or (course_load == "Heavy"): #this if statement here checks and confirms that the user selects a valid option.
+
+    #the choice question and state boost based on light course load
     if course_load == "Light":
         class_attendance = input("Will you attend class today? (Y/N)")
 
@@ -21,35 +25,69 @@ if (course_load == "Light") or (course_load == "Standard") or (course_load == "H
             print("You attend class today")
             study_hours += 1
             stress_level -= 4
-            study_choice = input("Will you study? (Y/N)")
+            current_gpa += 0.1
+
         elif class_attendance == "N":
             print("You did not attend class today")
             study_hours -= 1
             stress_level += 4
-            study_choice = input("Will you study? (Y/N)")
+            current_gpa -= 0.3
+
+        else:
+            print("Invalid Choice")
+    # the choice question and state boost based on standard course load
+    if course_load == "Standard":
+        class_attendance = input("Will you attend class today? (Y/N)")
+
+        if class_attendance == "Y": # this is the first decision you'll make as a student in this game
+            print("You attend class today")
+            study_hours += 3
+            stress_level -= 6
+            current_gpa += 0.3
+
+        elif class_attendance == "N":
+            print("You did not attend class today")
+            study_hours -= 3
+            stress_level += 6
+            current_gpa -= 0.5
+
         else:
             print("Invalid Choice")
 
-        if study_choice == "Y":
-            print("You studied")
-            study_hours += 2
-            stress_level -= 4
-        elif study_choice == "N":
-            print("You did not studied")
-            study_hours -= 2
-            stress_level += 4
+    # the choice question and state boost based on heavy course load
+    if course_load == "Heavy":
+        class_attendance = input("Will you attend class today? (Y/N)")
+
+        if class_attendance == "Y": # this is the first decision you'll make as a student in this game
+            print("You attend class today")
+            study_hours += 4
+            stress_level -= 8
+            current_gpa += 0.6
+
+        elif class_attendance == "N":
+            print("You did not attend class today")
+            study_hours -= 3
+            stress_level += 10
+            current_gpa -= 0.8
         else:
             print("Invalid Choice")
 
+    print("Study location options: Library, Student Center, Dorm study rooms")
 
+    study_location = ["Library", "Student Center", "Dorm study rooms"]
+    where_did_you_study1 = input("Where did you study? ")
+    where_did_you_study2 = input("Where did you study? ")
+    where_did_you_study3 = input("Where did you study? ")
+    user_study_location = [where_did_you_study1,where_did_you_study2,where_did_you_study3]
 
+    if "Library" in user_study_location:
+        study_hours = study_hours + user_study_location.count("Library") * 3
 
+    if "Student Center" in user_study_location:
+        study_hours = study_hours + user_study_location.count("Student Center") * 1
 
-
+    if "Dorm study rooms" in user_study_location:
+        study_hours = study_hours + user_study_location.count("Dorm study rooms") * 2
 
 else:
     print("Invalid Choice")
-if (study_hours > 5) and (stress_level < 40):
-    print("You passed your test!!!")
-elif (study_hours <= 5) or (stress_level >= 40):
-    print("You failed your test.")
