@@ -90,16 +90,19 @@ if (course_load == "Light") or (course_load == "Standard") or (course_load == "H
         if "Library" in user_study_location: #checks the locations you selected and adjusts your stats accordingly
             study_hours = study_hours + user_study_location.count("Library") * 3
             stress_level -= 10
+            social_points = 10
         if "Student Center" in user_study_location:
             study_hours = study_hours + user_study_location.count("Student Center") * 1
             stress_level -= 1
+            social_points += 15
         if "Dorm study rooms" in user_study_location:
             study_hours = study_hours + user_study_location.count("Dorm study rooms") * 2
             stress_level -= 5
+            social_points += 2
     elif study_choice == "N":
         study_hours -= 5
     else:
         print("Invalid choice")
 else:
     print("Invalid Choice")
-print(study_hours)
+
