@@ -93,7 +93,7 @@ if (course_load == "Light") or (course_load == "Standard") or (course_load == "H
     study_choice = input("Will you study today? (Y/N)") #This is the next decision you'll make. Deciding whether you'll study or not
 
     if study_choice == "Y":
-        print("Study location options: Library, Student Center, Dorm study rooms")
+        print("Study location options: Library, Student Center, Dorm study rooms, (You'll select 3)")
 #here you're choosing where you'll study which will ultimately affect your study hours and stress levels
         study_location = ["Library", "Student Center", "Dorm study rooms"]
         where_did_you_study1 = input("Where did you study? ")
@@ -170,7 +170,7 @@ if (course_load == "Light") or (course_load == "Standard") or (course_load == "H
 #The social point you collected will effect whether you were considered active or not on campus
     if social_points < 50:
         print("School Involvement: Barely Involved")
-    elif social_points < 58:
+    elif social_points < 65:
         print("School Involvement: Average Involvement")
     else:
         print("School Involvement: Highly Involved")
