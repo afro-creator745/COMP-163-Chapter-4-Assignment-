@@ -1,5 +1,17 @@
-#Required information
+"""
+COMP 163 - Introduction to Programming
+Assignment: Chapter 4 - College Life Adventure Game
+Name: Hakeem Cole
+GitHub Username: afro-creator745
+Date: 2/13/2026
+Description: You'll go through the game to simulate you college experience.
+You'll select your course load and proceed to make decisions that will affect you college success.
+Give it a try a see where you end up.
+AI Usage: None
+"""
 
+
+#Required information
 student_name = "Hakeem Cole"
 current_gpa = 3.9
 study_hours = 4
