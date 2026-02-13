@@ -65,12 +65,14 @@ if (course_load == "Light") or (course_load == "Standard") or (course_load == "H
                 study_hours += 4
                 stress_level -= 8
                 current_gpa += 0.6
+                social_points -= 10
 
             elif class_attendance == "N":
                 print("You did not attend class today")
                 study_hours -= 3
                 stress_level += 10
                 current_gpa -= 0.8
+                social_points += 10
         else:
             print("Not qualified")
 
@@ -90,7 +92,7 @@ if (course_load == "Light") or (course_load == "Standard") or (course_load == "H
         if "Library" in user_study_location: #checks the locations you selected and adjusts your stats accordingly
             study_hours = study_hours + user_study_location.count("Library") * 3
             stress_level -= 10
-            social_points = 10
+            social_points += 10
         if "Student Center" in user_study_location:
             study_hours = study_hours + user_study_location.count("Student Center") * 1
             stress_level -= 1
@@ -101,8 +103,78 @@ if (course_load == "Light") or (course_load == "Standard") or (course_load == "H
             social_points += 2
     elif study_choice == "N":
         study_hours -= 5
+        social_points += 20
     else:
         print("Invalid choice")
+ #Step 4, here is where all the states will have an` effect on your results
+    print("\nStats Reports") #the start of the end game stat report
+    print(student_name)
+
+    mood = "neutral" #addeds in a mood factor that is based on you stress level which in turn effects how many study hours you would need to pass
+    if stress_level <= 26:
+        mood = "confident"
+    elif stress_level <= 40:
+        mood = "moderate"
+    elif stress_level <= 50:
+        mood = "overwhelmed"
+
+    easy = "confident"
+    medium = "moderate"
+    hard = "overwhelmed"
+#The if statements that determine whether you pass or not and not passing effects your gpa
+    if mood is easy:
+        if (course_load == "Heavy") and (study_hours >= 10):
+           print("You passed your test")
+        elif (course_load == "Standard") and (study_hours >= 6):
+            print("You passed your test")
+        elif (course_load == "Light") and (study_hours >= 4):
+            print("You passed your test")
+        else:
+            print("You Failed your test")
+            current_gpa -=0.5
+
+    if mood is medium:
+        if (course_load == "Heavy") and (study_hours >= 12):
+           print("You passed your test")
+        elif (course_load == "Standard") and (study_hours >= 8):
+            print("You passed your test")
+        elif (course_load == "Light") and (study_hours >= 5):
+            print("You passed your test")
+        else:
+            print("You Failed your test")
+            current_gpa -=0.5
+
+    if mood is hard:
+        if (course_load == "Heavy") and (study_hours >= 14):
+           print("You passed your test")
+        elif (course_load == "Standard") and (study_hours >= 9):
+            print("You passed your test")
+        elif (course_load == "Light") and (study_hours >= 6):
+            print("You passed your test")
+        else:
+            print("You Failed your test")
+            current_gpa -=0.5
+
+#The social point you collected will effect whether you were considered active or not on campus
+    if social_points < 50:
+        print("School Involvement: Barely Involved")
+    elif social_points < 58:
+        print("School Involvement: Average Involvement")
+    else:
+        print("School Involvement: Highly Involved")
+
+#Display the stats
+
+    print("Stress Level:",stress_level)
+    print("Current Mood:",mood)
+    print("Study Hours:", study_hours)
+    print("Social Points:", social_points)
+    print("Current GPA:" ,current_gpa)
+
+
 else:
     print("Invalid Choice")
+
+
+
 
